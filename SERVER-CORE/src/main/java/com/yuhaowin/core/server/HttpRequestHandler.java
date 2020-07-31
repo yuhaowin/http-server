@@ -1,6 +1,6 @@
 package com.yuhaowin.core.server;
 
-import com.yuhaowin.core.servlet.DispatcherServlet;
+import com.yuhaowin.core.dispatcher.Dispatcher;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
@@ -27,7 +27,7 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<HttpObject >
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject  req) {
-        DispatcherServlet dispatcherServlet = new DispatcherServlet();
-        dispatcherServlet.service(req,ctx);
+        Dispatcher dispatcher = new Dispatcher();
+        dispatcher.service(req,ctx);
     }
 }

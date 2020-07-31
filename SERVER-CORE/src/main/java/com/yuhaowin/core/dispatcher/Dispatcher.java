@@ -1,4 +1,4 @@
-package com.yuhaowin.core.servlet;
+package com.yuhaowin.core.dispatcher;
 
 import com.yuhaowin.core.handler.HandlerManager;
 import com.yuhaowin.core.handler.MappingHandler;
@@ -10,7 +10,7 @@ import io.netty.util.CharsetUtil;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class DispatcherServlet  {
+public class Dispatcher {
 
     public void service(HttpObject  req, ChannelHandlerContext ctx){
         for (MappingHandler handler : HandlerManager.mappingHandlerList) {
