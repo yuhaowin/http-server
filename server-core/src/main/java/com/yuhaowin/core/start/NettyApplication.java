@@ -1,7 +1,7 @@
 package com.yuhaowin.core.start;
 
-import com.yuhaowin.core.handler.ClassScanner;
 import com.yuhaowin.core.handler.BeanFactory;
+import com.yuhaowin.core.handler.ClassScanner;
 import com.yuhaowin.core.handler.HandlerManager;
 import com.yuhaowin.core.server.HttpServer;
 
@@ -14,9 +14,9 @@ public class NettyApplication {
         System.out.println("Hello NettyApplication");
         int port = 8080; //默认启动端口
         String commandPort = Arrays.stream(args)
-                        .filter(arg -> arg.startsWith("--server.port=")).findFirst().get();
-        if (commandPort != null && !commandPort.isEmpty()){
-           port = Integer.valueOf(commandPort.split("=")[1]);
+                .filter(arg -> arg.startsWith("--server.port=")).findFirst().orElse("");
+        if (commandPort != null && !commandPort.isEmpty()) {
+            port = Integer.valueOf(commandPort.split("=")[1]);
         }
         HttpServer httpServer = new HttpServer(port);
         try {
