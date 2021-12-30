@@ -12,6 +12,7 @@ public class TestController {
 
     @RequestMapping(value = "/get-test", methodType = "GET")
     public String getTest(@RequestParam("name") String name, @RequestParam("age") String age) {
+
         return String.format("method=GET, name=%s, age=%s", name, age);
     }
 
